@@ -1,0 +1,66 @@
+/* General Styles */
+.root {
+    -fx-font-family: "Arial";
+    -fx-background-color: #f4f4f4;
+}
+
+/* ListView Styling (Chat History) */
+.list-view {
+    -fx-background-color: #e9ecef;
+    -fx-border-color: #d6d8db;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+}
+
+.list-view .cell {
+    -fx-padding: 10;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d6d8db;
+    -fx-border-width: 0 0 1 0;
+    -fx-font-size: 14px;
+}
+
+.list-view .cell:hover {
+    -fx-background-color: #f1f1f1;
+}
+
+/* TextArea Styling (Current Conversation) */
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+}
+
+/* TextArea for Input */
+.text-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ced4da;
+    -fx-border-width: 1;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #6c757d;
+}
+
+.text-area:focused {
+    -fx-border-color: #80bdff;
+    -fx-background-color: #f8f9fa;
+}
+
+/* VBox Spacing */
+.vbox {
+    -fx-padding: 10;
+}
+.HBox{
+    -fx-background-color:#FFF ;
+}
+#userInputArea{
+    -fx-background-color: white;
+}
+#sendButton{
+    -fx-background-color: white;
+}
+#clipButton{
+    -fx-background-color: white;
+}
