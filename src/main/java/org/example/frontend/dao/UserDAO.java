@@ -9,7 +9,7 @@ import org.mindrot.jbcrypt.BCrypt; // Add BCrypt library for hashing
 
 public class UserDAO {
 
-    public boolean login(String email, String password) {
+    public int login(String email, String password) {
         String sql = "SELECT * FROM users WHERE email = ?";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -17,15 +17,16 @@ public class UserDAO {
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
                     String storedHash = rs.getString("password");
-                    return BCrypt.checkpw(password, storedHash);
+                    if (BCrypt.checkpw(password, storedHash)) {
+                        return rs.getInt("id");
+                    }
                 }
             }
         } catch (SQLException e) {
             System.err.println("Error during login: " + e.getMessage());
             e.printStackTrace();
-            return false;
         }
-        return false;
+        return -1;
     }
 
     public void signup(User user) throws SQLException {
@@ -40,5 +41,23 @@ public class UserDAO {
             pstmt.setString(4, hashedPassword);
             pstmt.executeUpdate();
         }
+    }
+
+    public boolean userExist(String email) throws SQLException {
+        String sql = "SELECT 1 FROM users WHERE email = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, email);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                // If a row is returned, the user exists
+                return rs.next();
+            }
+        } catch (SQLException e) {
+            System.err.println("Error checking if user exists: " + e.getMessage());
+            e.printStackTrace();
+            throw e; // Rethrow the exception to propagate it
+        }
+
     }
 }

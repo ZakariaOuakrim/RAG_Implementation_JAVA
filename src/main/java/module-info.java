@@ -6,6 +6,8 @@ module org.example.frontend {
     requires java.sql;
     requires static lombok;
     requires jbcrypt;
+    requires json;
+    requires java.net.http;
 
     opens org.example.frontend to javafx.fxml;
     exports org.example.frontend;

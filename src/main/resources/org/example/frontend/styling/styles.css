@@ -4,9 +4,23 @@
     -fx-background-color: #f4f4f4;
 }
 
+/* Button Styling */
+#newConversationButton {
+    -fx-background-color: linear-gradient(to bottom, #4CAF50, #2E7D32);
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+}
+
+#newConversationButton:hover {
+    -fx-background-color: linear-gradient(to bottom, #66BB6A, #388E3C);
+}
+
 /* ListView Styling (Chat History) */
 .list-view {
-    -fx-background-color: #e9ecef;
+    -fx-background-color: #ffffff;
     -fx-border-color: #d6d8db;
     -fx-border-width: 1;
     -fx-padding: 5;
@@ -15,25 +29,19 @@
 .list-view .cell {
     -fx-padding: 10;
     -fx-background-color: #ffffff;
-    -fx-border-color: #d6d8db;
-    -fx-border-width: 0 0 1 0;
     -fx-font-size: 14px;
+}
+
+.list-view .cell:selected {
+    -fx-background-color: #e3f2fd;
+    -fx-text-fill: #1565c0;
 }
 
 .list-view .cell:hover {
     -fx-background-color: #f1f1f1;
 }
 
-/* TextArea Styling (Current Conversation) */
-.text-area {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #ced4da;
-    -fx-border-width: 1;
-    -fx-padding: 10;
-    -fx-font-size: 14px;
-}
-
-/* TextArea for Input */
+/* TextArea Styling */
 .text-area {
     -fx-background-color: #ffffff;
     -fx-border-color: #ced4da;
@@ -48,19 +56,17 @@
     -fx-background-color: #f8f9fa;
 }
 
-/* VBox Spacing */
-.vbox {
+/* Message Bubbles */
+.user-message {
+    -fx-background-color: #e0e0e0;
     -fx-padding: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 14px;
 }
-.HBox{
-    -fx-background-color:#FFF ;
-}
-#userInputArea{
-    -fx-background-color: white;
-}
-#sendButton{
-    -fx-background-color: white;
-}
-#clipButton{
-    -fx-background-color: white;
+
+.bot-message {
+    -fx-background-color: #bbdefb;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+    -fx-font-size: 14px;
 }

@@ -16,4 +16,9 @@ public class Message {
     private int conversationId;
     private String text;
     private byte[] image;
+    private Sender sender;
+
+    public boolean isUserMessage(){
+        return this.sender == Sender.USER;
+    }
 }
